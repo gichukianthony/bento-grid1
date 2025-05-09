@@ -1,11 +1,11 @@
 :root {
-    --primary: hsl(256, 67%, 59%);
-    --primary-light: hsl(254, 88%, 90%);
-    --accent: hsl(39, 100%, 71%);
-    --accent-light: hsl(31, 66%, 93%);
-    --text-dark: hsl(0, 0%, 7%);
-    --text-light: hsl(0, 0%, 100%);
-    --background: hsl(0, 0%, 98%);
+    --primary: #7B52F6;
+    --primary-light: #D6CEF2;
+    --accent: #FED271;
+    --accent-light: #FAEEE2;
+    --text-dark: #000000;
+    --text-light: #FFFFFF;
+    --background: #F5F5F5;
     --card-shadow: 0 4px 24px rgba(124, 92, 255, 0.06);
 }
 
@@ -17,11 +17,14 @@
 
 body {
     background: var(--background);
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     color: var(--text-dark);
     line-height: 1.5;
     padding: 2rem;
     min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .bento-grid {
@@ -31,6 +34,10 @@ body {
     gap: 1.5rem;
     max-width: 1200px;
     margin: 0 auto;
+    background: var(--background);
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: var(--card-shadow);
 }
 
 .card {
@@ -42,6 +49,11 @@ body {
     flex-direction: column;
     gap: 1rem;
     overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
 }
 
 .card img {
@@ -88,6 +100,7 @@ body {
 .card-main h1 span {
     display: block;
     font-size: 3.5rem;
+    color: var(--accent);
 }
 
 .card-main h1 em {
@@ -111,6 +124,11 @@ body {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.create-btn:hover {
+    background: var(--primary-light);
 }
 
 .card-schedule {
@@ -122,7 +140,7 @@ body {
 .card-ai {
     background: var(--accent);
     grid-column: 1;
-    grid-row: 2;
+    grid-row: 2 / span 2;
 }
 
 .card-multi {
@@ -137,7 +155,7 @@ body {
 }
 
 .card-growth {
-    grid-column: 1 / span 2;
+    grid-column: 2;
     grid-row: 3;
 }
 
@@ -172,9 +190,9 @@ body {
     .card-main { grid-column: 1 / span 2; grid-row: 1; }
     .card-create { grid-column: 1; grid-row: 2; }
     .card-schedule { grid-column: 2; grid-row: 2; }
-    .card-ai { grid-column: 1; grid-row: 3; }
+    .card-ai { grid-column: 1; grid-row: 3 / span 2; }
     .card-multi { grid-column: 2; grid-row: 3; }
-    .card-consistent { grid-column: 1; grid-row: 4; }
+    .card-consistent { grid-column: 1; grid-row: 5; }
     .card-growth { grid-column: 2; grid-row: 4; }
     .card-followers { grid-column: 1 / span 2; grid-row: 5; }
 }
